@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- chat_item_template.fxml -->
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<HBox xmlns:fx="http://javafx.com/fxml" maxHeight="150">
+
+    <Label fx:id="chatLabel" text="Chat Text" styleClass="chat-label" maxWidth="500" HBox.hgrow="ALWAYS"
+           wrapText="true"/>
+</HBox>
