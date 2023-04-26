@@ -1,15 +1,15 @@
 continueC   ok. wow. great. oh really. thanks. thanks thank you. okay. nice.
-ask-gate-info   At which gate does my flight take off? Where does my plane leave? Where is my gate? From which gate does my flight take off? Where is my departure gate?
-ask-flight-recommendation   Where should I travel? Please recommend a flight for me. I cannot decide where to go. Can you recommend some destinations for me? I want to flight somewhere, but do not know where to go.
+ask-gate-info   At which gate does my flight take off? Where does my plane leave? Where is my gate? From which gate does my flight take off? Where is my departure gate? Do you know the gate for my flight? Hey, can you tell me the gate for my flight?
+ask-flight-recommendation   Where can I fly? Where should I travel? Please recommend a flight for me. I cannot decide where to go. Can you recommend some destinations for me? I want to flight somewhere, but do not know where to go.
 end   that's it. That's good. Thats all. No further questions. No. no thats is
 beach-recommendation    I want to spend some time at the beach. I would like to have nice days at the beach. sea. swimming. it should be warm. Beach sounds nice. A beach trip would be cool. Beach trip. beach trip
 city-recommendation     Explore new cities. See something new. I want to see something new. Please recommend a city trip for me. I would like to explore a city. A city trip sounds nice. City trip. city trip.
 seasonal-recommendation     Recommend a flight based on the season. Recommend a flight based on the current season. Based on the season. A seasonal recommendation
 destination-time    What's the time in. Can you tell me the current date and time in. Please tell me the time in
-provide-booking-number      My booking number is 9TQ1Y. This is my booking number: 9TQ1Y. 6WN2D. 2XJ9K.
-ask-service-agent   I want to speak a service agent. Please connect me to a service agent. I need the help of a service agent.
+provide-booking-number      My booking number is 9TQ1Y. This is my booking number: 9TQ1Y. 6WN2D. 2XJ9K. booking number
+ask-service-agent   I want to speak a service agent. Please connect me to a service agent. I need the help of a service agent. Please redirect me to a service agent. Please transfer me to a service agent. Hey can you contact me with a service agent to continue the booking?
 ask-flights      I want to book a flight to. Please book a flight for me. I would like to book a flight to. Book a flight for me to Madrid on June 23, 2023. Madrid on June 20, 2023.
 choose-option   I choose option 1. I choose option 2 .I choose option 3. 1. 2. 3. Option 1. Option 2. Option 3.
 ask-skills      What skills do you have? How can you help me? What can you do for me?
-angry-passenger     This is ridiculous! Why has my flight been canceled? I won't fly with this shit airline again. This airline is shit! It is a disaster!
-baggage-info    What are the baggage regulations for my flight? How much luggage may I take with me? Are there any regulations for luggage? Are there any limits for the luggage? Are there any limits for the baggage?
+angry-passenger     my flight got canceled & i want a refund now! Please help me, because my flight got canceled. Refund me! I want a refund! My flight got canceled! My flight was canceled! my flight was canceled. I have something to complain about!!!!! My flight was canceled! I am very upset!!!
+baggage-info    What are the baggage regulations for my flight? How much luggage may I take with me? Are there any regulations for luggage? Are there any limits for the luggage? Are there any limits for the baggage? What are the weight restrictions and fees? Can you provide me any information about baggage restrictions and fees? Do have any baggage information

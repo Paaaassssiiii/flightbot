@@ -1,5 +1,6 @@
 package com.example.flightbot;
 
+
 import com.example.flightbot.enums.Season;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +14,7 @@ import javafx.scene.layout.HBox;
 import opennlp.tools.doccat.*;
 import opennlp.tools.lemmatizer.LemmatizerME;
 import opennlp.tools.lemmatizer.LemmatizerModel;
-import opennlp.tools.namefind.NameFinderME;
-import opennlp.tools.namefind.TokenNameFinderModel;
+import opennlp.tools.namefind.*;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.sentdetect.SentenceDetectorME;
@@ -31,6 +31,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -147,8 +148,7 @@ public class Controller implements Initializable {
     }
 
     private static String findCategory(String text) throws Exception {
-        //Detect sentences
-        String[] sentences = detectSentences(text);
+
         String[] tokens = tokenize(text);
         String[] posTags = posTag(tokens);
         String[] lemmas = lemmatize(tokens, posTags);
@@ -159,6 +159,9 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
         inMemoryDatabase = new InMemoryDatabase();
         inMemoryDatabase.setUpDB();
 
@@ -224,6 +227,7 @@ public class Controller implements Initializable {
     }
 
     private String respond(String category, String userInput) throws Exception {
+
         Enum<Season> season = getSeason();
         String respond = "";
         String bookingNumber;
@@ -235,21 +239,22 @@ public class Controller implements Initializable {
         String[] end = {"Goodbye!", "Bye", "See you next time", "Goodbye and have a nice day!"};
         String[] travelRec = {"Do you want a recommendation for city trips, beach vacation or based on the current season? ", "Please tell me if you would like a recommendation based on the current season or for city trips or beach trips."};
         String[] beachRec = {"Fly to Venice (Italy) and spend some time in Jesolo which is not far away", "I can recommend Cyprus", "Malta is always worth a visit"};
-        String[] cityRec = {"Fly to Zurich (Switzerland) and enjoy the time there.", "Based on the most booked flights, Porto is a good choice for a city trip.", ""};
+        String[] cityRec = {"Fly to Zurich (Switzerland) and enjoy the time there.", "Based on the most booked flights, Porto is a good choice for a city trip.", "I can recommend a trip to Barcelona!"};
         String[] springTravelRec = {"I can recommend a trip to New York", "Tokyo in spring is always worth a visit", "Madrid, Lisbon or Marseilles are nice places to visit"};
         String[] summerTravelRec = {"Barcelona, Amsterdam and Los Angeles are the top three visited cities at the moment.", "I heard that Neapel is a beautiful city",};
         String[] autumnTravelRec = {"Transylvania (Romania) is one of the best places in Europe to see stunning fall colours", "In Lapland (Finland) the Northern Lights are at their strongest at this time of the year", "I can recommend a city trip to Munich"};
         String[] winterTravelRec = {"I can recommend Prague (Czech republic)", "Rovaniemi in Finland is a nice place to visit", "If you want to escape the cold, then book a flight to Cancun (Mexico)", "Tenerife in Spain is one of the best winter destinations in Europe"};
-        String[] serviceAgent = {"Please call: +4360606060 or write an e-mail to help@service.com.", "Wait a moment, I am redirecting you to a service agent...", "If I cannot help you anymore, please contact a service agent at the service desk or call him on the phone"};
+        String[] serviceAgent = {"Please call: +4360606060 or write an e-mail to help@service.com.", "Wait a moment, I am redirecting you to a service agent...", "If I cannot help you anymore, please contact a service agent at the service desk or call him on the phone: +4360606060"};
         String[] handleAngryPassenger = {"I understand that this is a frustrating situation, and I want to assure you that we're doing everything we can to help you.", "I apologize for the inconvenience and want to make sure we find a solution that works for you.", "I know that your time is valuable and we appreciate your patience as we work to resolve this issue.", "We understand that this is not the experience you were expecting, and we're committed to making it right.", "We apologize for any inconvenience caused by the cancellation of your flight. Unfortunately, there are times when we have to cancel flights due to unforeseen circumstances or safety concerns. We always do our best to communicate these changes as soon as possible."};
-        String[] departureTimes1 = {"03:35 p.m.", "01:45 p.m.", "09:05 p.m.", "07:25 a.m.", "10:00 a.m., 06:00 p.m."};
-        String[] departureTimes2 = {"04:35 p.m.", "02:45 p.m.", "10:05 p.m.", "05:25 a.m.", "11:00 a.m., 07:00 p.m."};
-        String[] departureTimes3 = {"05:35 p.m.", "03:45 p.m.", "11:05 p.m.", "06:25 a.m.", "12:00 a.m., 08:00 p.m."};
+        String[] departureTimes1 = {"03:35 p.m.", "01:45 p.m.", "09:05 p.m.", "07:25 a.m.", "10:00 a.m.", "06:00 p.m."};
+        String[] departureTimes2 = {"04:35 p.m.", "02:45 p.m.", "10:05 p.m.", "05:25 a.m.", "11:00 a.m.", "07:00 p.m."};
+        String[] departureTimes3 = {"05:35 p.m.", "03:45 p.m.", "11:05 p.m.", "06:25 a.m.", "12:00 a.m.", "08:00 p.m."};
         String[] skills = {"I can recommend destinations based on the current season, or depending on whether you want to spend time at the beach or exploring new cities. Also, you can ask me for the current time in a European city. If a flight is canceled, I'm here to help you get a refund or book another flight. I can also help you find the right gate for your departure and if I can't help you any further, I will refer you to a service representative. I can also take the first steps to booking a flight"};
         String[] baggageInfo = {"A piece of luggage may have a maximum circumference of 158 cm (height + width + length) and weigh a maximum of 23 kg - or 32 kg in Business Class.", "You can take 2 pieces of luggage (one hand luggage and one checked luggage) on your flight for free. Each additional piece of luggage must be paid."};
+
         switch (category) {
             case "ask-skills":
-                respond = skills[(int) (Math.random() * continueC.length)];
+                respond = skills[(int) (Math.random() * skills.length)];
                 break;
             case "continueC":
                 respond = continueC[(int) (Math.random() * continueC.length)];
@@ -300,7 +305,7 @@ public class Controller implements Initializable {
                 destination = getLocation(userInput);
                 date = getDate(userInput);
                 if (destination.equals("") || date.equals("")) {
-                    respond = "Please provide a destination and a date for your booking or try to rephrase your statement";
+                    respond = "Please provide a destination and a date (e.g. March 16 2023) for your booking or try to rephrase your statement";
                 } else {
                     respond = "I can offer you a flight to " + destination + "on " + date + " at the following departure times:\n" +
                             "Option 1: " + departureTimes1[(int) (Math.random() * departureTimes1.length)] + "\n" +
@@ -374,9 +379,7 @@ public class Controller implements Initializable {
     }
 
     private String getLocation(String userInput) throws IOException {
-        //Function to get a Location from a User Input
-
-
+        //Method to get a Location from a User Input
         InputStream inputLocation = new FileInputStream("opennlp/en-ner-location.bin");
         TokenNameFinderModel locationFinderModel = new TokenNameFinderModel(inputLocation);
         NameFinderME nameFinderLocation = new NameFinderME(locationFinderModel);
@@ -384,7 +387,6 @@ public class Controller implements Initializable {
         String[] tokens = tokenize(userInput);
 
         Span[] locationSpans = nameFinderLocation.find(tokens);
-
 
         for (Span city : locationSpans) {
             StringBuilder entity = new StringBuilder();
@@ -396,8 +398,6 @@ public class Controller implements Initializable {
 
             System.out.println(city.getType() + " : " + entity + "\t [probability=" + city.getProb() + "]");
             return entity.toString();
-
-
         }
         return "";
     }
